@@ -1,3 +1,31 @@
+"""
+finetune_shakespeare.py
+------------------------
+
+This is a configuration file for fine-tuning a pre-trained GPT-2 model on a small dataset 
+like Shakespeare. It’s designed for use with nanoGPT’s `train.py` script.
+
+Key points:
+- Starts from the pre-trained GPT-2 XL model (`init_from = 'gpt2-xl'`).
+- Uses small batch size (1) with gradient accumulation to simulate larger batches.
+- Runs for only 20 iterations (short demonstration of fine-tuning).
+- Uses a small learning rate (3e-5) without decay, good for fine-tuning.
+- Only saves checkpoints if validation loss improves (to save disk space).
+- Adjust `out_dir`, `dataset`, and `wandb_log` as needed.
+
+Usage:
+------
+$ python train.py config/finetune_shakespeare.py
+
+Adjust this file for your own fine-tuning tasks (like Barangay ordinances!) 
+by setting:
+- dataset = 'barangay_data'
+- out_dir = 'out-barangay'
+- init_from = 'gpt2-xl' or 'scratch'
+
+Happy fine-tuning!
+"""
+
 import time
 
 out_dir = 'out-shakespeare'

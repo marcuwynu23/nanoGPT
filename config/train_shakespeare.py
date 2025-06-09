@@ -1,3 +1,35 @@
+"""
+train_shakespeare.py
+---------------------
+
+This is a configuration file for training a small character-level GPT model on the
+Shakespeare dataset. It’s a great starting point for experimenting with character-level 
+modeling in nanoGPT.
+
+Key points:
+- Uses a small "baby" GPT architecture (6 layers, 6 heads, 384 embedding size).
+- Designed for CPU or small GPU environments (e.g. MacBooks).
+- Only saves checkpoints if the validation loss improves (to avoid clutter).
+- Tiny dataset (Shakespeare), so overfitting is expected quickly.
+- Uses a high learning rate for fast convergence.
+
+Usage:
+------
+$ python train.py config/train_shakespeare.py
+
+To adapt for your own dataset (e.g. Barangay ordinances):
+- Replace `dataset = 'shakespeare_char'` with your dataset name.
+- Adjust `block_size` and `max_iters` based on your dataset’s length and training goals.
+- Update `out_dir` to a unique output directory.
+
+Example:
+dataset = 'barangay_char'
+out_dir = 'out-barangay'
+block_size = 256  # or a value that works with your text
+
+Have fun training!
+"""
+
 # train a miniature character-level shakespeare model
 # good for debugging and playing on macbooks and such
 
